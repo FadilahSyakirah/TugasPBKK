@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/Home', function () {
-    return view('Home');
+Route::get('/', function () {
+    return view('Template/Home');
 });
 
-Route::get('/Menu', function () {
-    return view('Menu');
+/*Route::get('/menu', function () {
+    return view('Template/menu');
 });
+*/
 
-Route::get('/Booking', function () {
-    return view('Booking');
-});
-
-
+Route::get('Template/menu', [MenuController::class, 'index']);
